@@ -1,31 +1,65 @@
-public class Homework {
-    public static double ShippingCalculator(double amount){
-        double sum=10.95;
-        if(amount==0){
-            sum=0;
-        }
-        else{
-            for(int i=0;i<amount-1;i++){
-                sum+=2.95;
-            }
-        }
-        return sum;
-    }
+import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.Arrays;
 
-    public static boolean IsNumberPrime(double number) {
-        boolean valid=false;
-        int divisible=0;
-        for(int i=1;i<=number;i++) {
-            if(number%i==0) {
-                divisible+=1;
-            }
-        }
-        if(divisible==2) {
-            valid=true;
-        }
-        return valid;
-    }
 
+//public class Main {
+//    public static void main(String[] args) {
+//        System.out.println("Enter amount of items: ");
+//        Scanner scanner = new Scanner(System.in);
+//        double number= scanner.nextDouble();
+//        System.out.printf("price %.2f \n" , ShippingCalculator(number));
+//    }
+//    public static double ShippingCalculator(double amount){
+//        double sum=10.95;
+//        if(amount==0){
+//            sum=0;
+//        }
+//        else{
+//            for(int i=0;i<amount-1;i++){
+//                sum+=2.95;
+//            }
+//        }
+//        return sum;
+//    }
+//}
+
+
+
+//public class Main {
+//    public static void main(String[] args) {
+//        System.out.println("Enter a number: ");
+//        Scanner scanner = new Scanner(System.in);
+//        double number= scanner.nextDouble();
+//        System.out.println("Is it prime number? "+ IsNumberPrime(number));
+//    }
+//    public static boolean IsNumberPrime(double number) {
+//        boolean valid=false;
+//        int divisible=0;
+//        for(int i=1;i<=number;i++) {
+//            if(number%i==0) {
+//                divisible+=1;
+//            }
+//        }
+//        if(divisible==2) {
+//            valid=true;
+//        }
+//        return valid;
+//    }
+//}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Enter a hex: ");
+        Scanner scanner = new Scanner(System.in);
+        String hex= scanner.next();
+        System.out.println("This hex is: "+hex2int(hex));
+
+        System.out.println("Enter a decimal: ");
+        Integer decimal= scanner.nextInt();
+        System.out.println("This dec is: "+int2hex(decimal));
+    }
     public static Integer hex2int(String hex) {
         if (hex.length() !=1) {
             return -1;
@@ -42,11 +76,12 @@ public class Homework {
     }
 
     public static String int2hex (Integer dec) {
-        if (dec<0 || dec>15) return "-1";
+        if (dec<0 || dec>15) {
+            return "-1";
+        }
         if (dec>=0 && dec<=9) {
             return String.valueOf(dec);
         }
         return String.valueOf((char) ('A'+(dec-10)));
     }
-
 }
